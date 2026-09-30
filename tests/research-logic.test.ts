@@ -1,0 +1,15 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import type { FundComposition, Security } from '../shared/types.ts';
+import { screenSecurities, compositionCoverage, fundPositionExposure } from '../shared/research.ts';
+const base:Security={id:'us:nasdaq:aapl',ticker:'AAPL',name:'Apple',country:'US',currency:'USD',exchange:'NASDAQ',assetClass:'US equity',sector:'Technology',color:'#333',price:200,previousClose:198,marketCap:100_000_000,pe:25,dividendYield:.5,indices:[],asOf:'2026-09-04',source:'Test fixture'};
+const indian:Security={...base,id:'in:nse:tcs',ticker:'TCS',name:'Tata Consultancy',country:'IN',currency:'INR',exchange:'NSE',assetClass:'Indian equity',marketCap:8_000_000_000,pe:20};
+const unknown:Security={...base,id:'us:unknown:x',ticker:'X',name:'Missing metrics',price:0,previousClose:0,marketCap:undefined,pe:undefined,dividendYield:undefined};
+test('screening compares market caps in one currency and puts unavailable caps last',()=>{assert.deepEqual(screenSecurities([indian,unknown,base],{sort:'cap'},100).map(s=>s.ticker),['AAPL','TCS','X']);});
+test('a valuation filter excludes missing values and negative earnings',()=>{const loss={...base,id:'loss',pe:-10};assert.deepEqual(screenSecurities([unknown,base,indian,loss],{maxPe:22},100).map(s=>s.ticker),['TCS']);});
+test('market, asset, sector, and query filters combine without adding holdings',()=>{const fund={...indian,id:'in:mf:123',assetClass:'Mutual fund' as const,name:'Indian Technology Fund'};assert.deepEqual(screenSecurities([base,indian,fund],{market:'IN',asset:'funds',sector:'Technology',query:'Indian'},100),[fund]);});
+test('missing FX never compares rupees as dollars',()=>{assert.deepEqual(screenSecurities([indian,base],{minCapUsdMillions:90},0),[base]);});
+test('funds do not inherit company market-cap or earnings filters',()=>{const fund={...base,id:'fund',assetClass:'ETF' as const};assert.deepEqual(screenSecurities([fund,base],{maxPe:30},100),[base]);assert.deepEqual(screenSecurities([fund,base],{minCapUsdMillions:1},100),[base]);});
+const composition:FundComposition={status:'partial',holdings:[{name:'Apple',ticker:'AAPL',weight:30},{name:'Microsoft',ticker:'MSFT',weight:20}],sectors:[],countries:[],assetAllocation:[],asOf:'2026-08-31',fetchedAt:'2026-09-07',source:'Fixture'};
+test('partial composition keeps the unreported remainder instead of rescaling weights',()=>{assert.deepEqual(compositionCoverage(composition),{reported:50,unreported:50,valid:true});assert.equal(fundPositionExposure(10000,composition.holdings[0]),3000);});
+test('invalid or leveraged weights are not presented as a complete 100% composition',()=>{assert.equal(compositionCoverage({...composition,holdings:[{name:'Bad',weight:120}]}).valid,false);assert.equal(compositionCoverage({...composition,holdings:[{name:'Short',weight:-5}]}).valid,false);});

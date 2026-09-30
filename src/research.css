@@ -1,0 +1,214 @@
+@layer pages {
+  .market-trends {display:grid;grid-template-columns:135px repeat(3,minmax(0,1fr));align-items:center;border-block:1px solid var(--border);padding:16px 0;margin-bottom:33px}
+  .market-trends-intro {display:flex;flex-direction:column;gap:8px;color:var(--muted);font-size:10px}
+  .market-trends-intro>span {display:flex;align-items:center;gap:9px}
+  .market-trends-intro small {font-size:9px}
+  .market-trend {display:flex;align-items:center;justify-content:space-between;gap:14px;min-width:0;border-left:1px solid var(--border);padding:2px 20px;min-height:46px}
+  .market-trend:focus-visible {outline:2px solid var(--purple);outline-offset:4px;border-radius:3px}
+  .market-trend-name,.market-trend-values {display:flex;flex-direction:column;gap:5px;white-space:nowrap}
+  .market-trend-name strong,.market-trend-values strong {font-size:11px;font-weight:550}
+  .market-trend-name small {font-size:9px;color:var(--muted)}
+  .market-trend-values {text-align:right;font-variant-numeric:tabular-nums}
+  .market-trend-values>span {font-size:10px}
+  .market-trend-values small {font-size:8px;color:var(--muted)}
+  .market-sparkline {width:84px;height:38px;flex:0 1 84px;min-width:44px;overflow:visible}
+  .market-sparkline.neutral {color:var(--muted)}
+  .sparkline-baseline {stroke:var(--border);stroke-width:1;stroke-dasharray:2 3}
+  .market-trend-unavailable {display:flex;align-items:center;gap:10px;font-size:10px;color:var(--muted)}
+  .data-table-wrap {position:relative}
+  .mobile-scroll-hint {font-size:11px;color:var(--muted);margin:12px 0}
+  .allocation-legend .allocation-values {display:flex;align-items:baseline;gap:14px;flex:0 0 auto;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .allocation-values small {font-size:10px;color:var(--muted);min-width:5.2ch;text-align:right}
+  .screener-page .page-heading p, .portfolio-page .page-heading p {font-size:13px}
+  .explore-intro {display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0 25px;border-top:1px solid var(--border)}
+  .explore-intro>div:first-child {display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px}
+  .market-switch {display:flex;padding:4px;border:1px solid var(--border);border-radius:9px;gap:3px}
+  .market-switch button {padding:8px 14px;border-radius:6px;font-size:12px;color:var(--muted)}
+  .market-switch button.active {background:var(--lime);color:#303822;font-weight:600}
+  .portfolio-quick-filters {width:fit-content;max-width:100%;flex-wrap:wrap;margin-bottom:0}
+  .portfolio-quick-filters button {min-height:36px}
+  .portfolio-controls {gap:12px}
+  .portfolio-controls .input-search input {width:160px}
+  .portfolio-controls>.text-link {white-space:nowrap}
+  .screener-controls {display:grid;grid-template-columns:minmax(230px,1.7fr) 1fr 1fr 1fr auto;gap:12px;align-items:end;padding-bottom:24px}
+  .screener-controls>label,.screener-filters>label {display:flex;flex-direction:column;gap:7px;font-size:11px;color:var(--muted)}
+  .screener-controls select,.screener-filters input {width:100%;min-height:43px;font-size:12px;color:var(--ink)}
+  .screener-search {height:43px}
+  .screener-search input {width:100%}
+  .screener-controls>.button {height:43px}
+  .filter-count {font-size:10px;border-radius:4px;background:var(--lavender);padding:2px 6px}
+  .screener-filters {display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:18px;padding:20px;background:var(--sidebar);border:1px solid var(--border);border-radius:9px;margin-bottom:25px}
+  .screener-filters>p {grid-column:1/-1;color:var(--muted);font-size:12px}
+  .screener-result-heading {display:flex;justify-content:space-between;align-items:center;gap:20px;margin:10px 0 18px}
+  .screener-result-heading>div {display:flex;align-items:center;gap:16px}
+  .screener-result-heading strong {font-weight:600;font-size:14px}
+  .screener-result-heading span {font-size:12px;color:var(--muted)}
+  .screener-result-heading .select-wrap select {font-size:12px}
+  .research-table .security-cell strong,.portfolio-table .security-cell strong {font-size:13px;max-width:250px}
+  .research-table .security-cell small,.portfolio-table .security-cell small {font-size:11px}
+  .research-table th,.portfolio-table th,.composition-table th {font-size:11px}
+  .quote-date {display:block;font-size:10px;color:var(--muted);margin-top:5px;font-weight:400}
+  .table-detail-link {font-size:11px;color:var(--green)}
+  .research-provenance {border-top:1px solid var(--border);padding-top:18px;margin-top:25px;color:var(--muted);font-size:11px;line-height:1.7}
+  .research-provenance p+p {margin-top:5px}
+  .research-provenance .status-dot {margin-right:8px}
+  .research-notice {font-size:12px;line-height:1.75;padding:13px 16px;background:var(--sidebar);border-left:3px solid #b5a2d2;margin:16px 0 24px;color:var(--muted)}
+  .source-link {margin-top:12px}
+  .screener-pagination {display:flex;align-items:center;justify-content:space-between;margin-top:20px;font-size:12px;color:var(--muted)}
+  .screener-pagination>div {display:flex;gap:10px}
+  .eyebrow {display:block;font-size:10px;font-weight:600;letter-spacing:1.4px;color:var(--muted);margin-bottom:7px}
+  .instrument-heading {display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:25px}
+  .instrument-identity {display:flex;align-items:center;gap:18px;min-width:0}
+  .instrument-identity h1 {font-size:30px;max-width:860px;text-wrap:pretty}
+  .instrument-identity p:last-child {font-size:12px;color:var(--muted);margin-top:8px;overflow-wrap:anywhere}
+  .instrument-price {display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:30px}
+  .instrument-price>strong {font-family:var(--heading);font-size:37px;letter-spacing:-1.5px;font-variant-numeric:tabular-nums}
+  .instrument-price>.change {font-size:14px}
+  .instrument-price>span:last-child {font-size:12px;color:var(--muted);margin-left:5px}
+  .your-position {display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:24px;padding:22px 25px;background:var(--sidebar);border:1px solid var(--border);border-radius:10px;margin-bottom:30px}
+  .your-position>div {display:flex;flex-direction:column;gap:6px}
+  .your-position span {font-size:11px;color:var(--muted)}
+  .your-position .eyebrow {font-size:9px;margin:0}
+  .your-position strong {font-size:18px;font-weight:600;font-variant-numeric:tabular-nums}
+  .your-position small {color:var(--muted);font-size:11px}
+  .instrument-metrics {display:grid;grid-template-columns:repeat(3,1fr);margin:0 0 32px;gap:24px 32px;padding:24px 0;border-block:1px solid var(--border)}
+  .instrument-metrics.fund-metrics {grid-template-columns:1fr 1fr 1fr 1.5fr}
+  .instrument-metrics dt {font-size:12px;color:var(--muted);margin-bottom:9px}
+  .instrument-metrics dd {font-size:18px;line-height:1.5;font-weight:550;margin:0;overflow-wrap:anywhere}
+  .fund-composition {padding-top:6px;margin-bottom:42px}
+  .fund-composition h2,.company-financials h2 {font-size:23px}
+  .fund-composition>.section-heading {margin-bottom:10px}
+  .section-intro {font-size:13px;color:var(--muted);margin-bottom:25px}
+  .composition-summary {display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:24px 0;border-block:1px solid var(--border)}
+  .composition-summary>div {display:flex;flex-direction:column;gap:6px}
+  .composition-summary strong {font-size:23px;font-family:var(--heading);font-variant-numeric:tabular-nums}
+  .composition-summary span {font-size:12px;color:var(--muted)}
+  .holding-list-heading {margin:30px 0 16px}
+  .holding-list-heading .input-search input {width:235px}
+  .composition-table td {padding-block:15px}
+  .composition-name {white-space:normal;font-weight:550;font-size:13px;max-width:470px;text-align:left}
+  .composition-table th:nth-child(2) {min-width:135px}
+  .composition-table .weight-track {width:95px;height:4px}
+  .composition-more {margin-top:18px}
+  .fund-allocation-grid {display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:34px;margin-top:36px;border-top:1px solid var(--border);padding-top:25px}
+  .fund-allocation h3 {font-size:15px;margin-bottom:22px}
+  .fund-allocation>p {font-size:12px}
+  .allocation-bars {display:flex;flex-direction:column;gap:17px}
+  .allocation-bars>div>div {display:flex;justify-content:space-between;gap:16px;font-size:12px;margin-bottom:6px}
+  .allocation-bars strong {font-size:11px;font-weight:500;font-variant-numeric:tabular-nums}
+  .allocation-bar-track {display:block;height:5px;border-radius:5px;background:var(--border);overflow:hidden}
+  .allocation-bar-track i {display:block;height:100%;background:#a7bd7c;border-radius:5px}
+  .fund-allocation:nth-child(2) .allocation-bar-track i {background:#b6a3d2}
+  .fund-allocation:nth-child(3) .allocation-bar-track i {background:#d8bd95}
+  .compact-unavailable {padding:20px 0;color:var(--muted);font-size:13px;line-height:1.8}
+  .compact-unavailable strong {color:var(--ink);font-size:14px;font-weight:500}
+  .compact-unavailable p {margin-top:6px;max-width:680px}
+  .compact-history {align-self:start;min-height:0}
+  .compact-history .compact-unavailable {padding:18px 0 0}
+  .instrument-history {margin:30px 0;padding-block:12px;border-bottom:1px solid var(--border)}
+  .instrument-about {margin:30px 0}
+  .instrument-about p {font-size:13px;line-height:1.9;color:var(--muted);max-width:880px;margin-top:14px}
+  .company-financials {padding-top:25px;margin-top:30px;border-top:1px solid var(--border)}
+  .research-details {border-block:1px solid var(--border);margin-top:24px}
+  .research-details summary {cursor:pointer;padding:20px 2px;font-weight:550;font-size:14px}
+  .research-details summary span {font-size:12px;color:var(--muted);margin-left:10px}
+  .research-details[open] {padding-bottom:16px}
+  .inline-empty {padding:25px 0;color:var(--muted);font-size:13px}
+  .portfolio-overview {display:grid;grid-template-columns:1.2fr 1fr 1fr;border-bottom:1px solid var(--border);gap:35px;margin-bottom:34px;padding-bottom:30px}
+  .portfolio-overview>div {display:flex;flex-direction:column;gap:9px}
+  .portfolio-overview>div:first-child {padding-left:19px;border-left:4px solid var(--lime)}
+  .portfolio-overview span {font-size:12px;color:var(--muted)}
+  .portfolio-overview strong {font-size:32px;line-height:1.4;font-family:var(--heading);letter-spacing:-1.2px;font-variant-numeric:tabular-nums}
+  .portfolio-overview small {font-size:11px;color:var(--muted)}
+  .portfolio-holdings>.section-heading {margin-bottom:22px}
+  .portfolio-holdings>.section-heading>.muted {font-size:12px}
+  .count-label {font:400 12px 'DM Sans',sans-serif;color:var(--muted);margin-left:10px}
+  .portfolio-context {display:grid;grid-template-columns:1.2fr 1fr;gap:40px;border-top:1px solid var(--border);padding-top:30px;margin-top:32px}
+  .portfolio-context>section {min-width:0}
+  .portfolio-context.single-column {grid-template-columns:1fr}
+  .portfolio-context .allocation-content {gap:22px}
+  .portfolio-context .donut-wrap {width:155px;height:155px}
+  .portfolio-history-stats {display:flex;gap:36px;margin-top:22px;border-top:1px solid var(--border);padding-top:18px}
+  .portfolio-history-stats>div {display:flex;flex-direction:column;gap:7px}
+  .portfolio-history-stats span {font-size:11px;color:var(--muted)}
+  .portfolio-history-stats strong {font-size:17px;font-weight:550}
+}
+
+@layer responsive {
+  @media(max-width:1200px){
+    .market-trends {grid-template-columns:105px repeat(3,minmax(0,1fr))}
+    .market-trend {display:grid;grid-template-columns:1fr auto;gap:7px 10px;padding-inline:14px}
+    .market-trend-name {grid-column:1/-1}
+    .market-sparkline {width:74px}
+    .market-trend-unavailable {grid-column:1/-1}
+  }
+  @media(max-width:600px){
+    .allocation-content,.portfolio-context .allocation-content {flex-direction:column;gap:20px}
+    .allocation-legend {width:100%}
+    .market-trends {grid-template-columns:repeat(3,minmax(0,1fr));padding-block:13px}
+    .market-trends-intro {grid-column:1/-1;flex-direction:row;justify-content:space-between;margin-bottom:15px}
+    .market-trend {display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-inline:12px}
+    .market-trend:first-of-type {border:0;padding-left:0}
+    .market-trend:last-of-type {padding-right:0}
+    .market-trend-values {text-align:left}
+    .market-sparkline {flex:none;width:80px;max-width:100%;height:34px}
+    .market-trend-name strong {font-size:10px}
+    .market-trend-name small {font-size:8px}
+    .market-trend-unavailable {font-size:9px}
+  }
+}
+@layer responsive {
+  @media(max-width:1250px) {
+    .screener-controls {grid-template-columns:repeat(3,1fr)}
+    .screener-search {grid-column:span 2}
+    .screener-controls>.button {justify-self:start}
+    .portfolio-context {grid-template-columns:1fr;gap:30px}
+    .portfolio-context .allocation-content {max-width:600px}
+  }
+  @media(max-width:700px) {
+    .explore-intro {flex-direction:column;align-items:flex-start;gap:18px}
+    .market-switch {width:100%}
+    .market-switch button {flex:1;font-size:11px;padding:9px}
+    .portfolio-quick-filters {width:fit-content}
+    .portfolio-quick-filters button {flex:0 0 auto;min-height:40px;padding-inline:12px}
+    .screener-controls {grid-template-columns:1fr 1fr;gap:14px}
+    .screener-search {grid-column:1/-1}
+    .screener-filters {grid-template-columns:1fr;padding:18px}
+    .screener-result-heading {align-items:flex-start;gap:12px}
+    .screener-result-heading>div {flex-direction:column;align-items:flex-start;gap:7px}
+    .screener-result-heading>div:last-child {align-items:flex-end}
+    .screener-result-heading .select-wrap select {font-size:11px;max-width:190px}
+    .research-table .security-cell strong,.portfolio-table .security-cell strong {font-size:12px;max-width:210px}
+    .research-table .security-cell small,.portfolio-table .security-cell small {font-size:10px}
+    .instrument-heading {align-items:flex-start;flex-wrap:wrap}
+    .instrument-identity {gap:12px;align-items:flex-start}
+    .instrument-identity .stock-logo {width:42px!important;height:42px!important}
+    .instrument-identity h1 {font-size:23px}
+    .instrument-identity p:last-child {font-size:11px}
+    .instrument-price>strong {font-size:32px}
+    .instrument-price>span:last-child {width:100%;margin:0;font-size:11px}
+    .your-position {grid-template-columns:1fr 1fr;gap:23px 16px;padding:19px}
+    .your-position strong {font-size:16px}
+    .instrument-metrics,.instrument-metrics.fund-metrics {grid-template-columns:1fr 1fr;gap:24px 20px}
+    .instrument-metrics dd {font-size:16px}
+    .composition-summary {grid-template-columns:1fr 1fr;gap:24px}
+    .composition-summary>div:last-child {grid-column:1/-1}
+    .composition-summary strong {font-size:22px}
+    .fund-composition h2,.company-financials h2 {font-size:21px}
+    .holding-list-heading {align-items:flex-start;flex-direction:column;gap:17px}
+    .holding-list-heading .input-search,.holding-list-heading input {width:100%!important}
+    .composition-name {display:block;min-width:180px;max-width:260px;font-size:12px}
+    .fund-allocation-grid {grid-template-columns:1fr;gap:30px}
+    .portfolio-overview {grid-template-columns:1fr 1fr;gap:26px 18px}
+    .portfolio-overview>div:first-child {grid-column:1/-1}
+    .portfolio-overview strong {font-size:26px}
+    .portfolio-overview>div:first-child strong {font-size:36px}
+    .portfolio-overview small {font-size:10px}
+    .portfolio-holdings>.section-heading {align-items:flex-start;flex-direction:column;gap:8px}
+    .portfolio-holdings>.section-heading>.muted {font-size:11px}
+    .portfolio-context .allocation-content {gap:20px}
+    .portfolio-context .donut-wrap {width:145px;height:145px}
+    .portfolio-history-stats {gap:25px}
+    .screener-pagination {align-items:flex-start;gap:15px;flex-direction:column}
+  }
+}

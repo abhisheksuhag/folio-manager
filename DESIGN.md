@@ -1,0 +1,4 @@
+# Visual direction
+Cream canvas #f7f7f0, dark ink #24261f, acid lime #d8fa57, lavender #b5a0e1, warm borders #e1e3d9, forest positive #407448 and muted rust negative #b35242. References determine this palette. Light mode is primary with a complete dark variant.
+
+Manrope for confident headings and DM Sans for reading and data. Generous page margins, a quiet fixed navigation rail, integrated charts with thin gridlines, and lightly rounded controls. Lime communicates the current selection and portfolio value; purple distinguishes benchmarks and intelligence. Original vector botanical growth forms provide the friendly character of the reference without copying its mascots. Operate mode on application screens; Persuade mode on the public landing page. Accessible contrast, keyboard focus, reduced motion, and mobile stacking are required.

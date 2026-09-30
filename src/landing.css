@@ -1,0 +1,127 @@
+@layer pages {
+  .landing {--landing-muted:#646d59}
+  .landing-nav .mobile-only {display:none}
+  .landing :is(.world-feature p,.landing-section-heading>p,.landing-research p,.landing-intelligence p) {color:var(--landing-muted)}
+  .landing :is(.landing-start,.landing-fund,.landing-faq) {max-width:1240px;margin-inline:auto;scroll-margin-top:35px}
+  .landing :is(.landing-start,.landing-fund,.landing-faq) p {font-size:14px;line-height:1.85;color:var(--landing-muted)}
+  .landing :is(.landing-start,.landing-fund,.landing-faq) h2 {font-size:clamp(32px,3.2vw,43px);text-wrap:balance}
+  .landing :is(.landing-start,.landing-fund,.landing-faq) h2 span {color:#788460}
+  .landing :is(.landing-start,.landing-fund,.landing-faq) .text-link {font-size:13px;gap:12px;color:#344627}
+  .landing :is(button,a,summary):focus-visible {outline:2px solid #8566b6;outline-offset:5px}
+  .portfolio-garden {margin:-8px 0 43px;padding:12px 18px 20px;border-radius:16px;background:#f0f2e6;overflow:hidden}
+  .portfolio-garden>svg {display:block;width:100%;height:auto;max-height:340px;font-family:'DM Sans',sans-serif}
+  .portfolio-garden figcaption {text-align:center;font-size:11px;color:#61704c;letter-spacing:.02em}
+  .landing-start {padding:36px 0 85px}
+  .start-heading {display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+  .start-heading p {padding-bottom:5px;max-width:350px}
+  .start-steps {list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:65px;margin:45px 0 30px;padding:0}
+  .step-drawing {height:78px;display:flex;align-items:center;gap:23px;margin-bottom:18px}
+  .step-drawing>span {display:grid;place-items:center;width:64px;height:64px;flex-shrink:0;border-radius:21px 24px 18px 23px;border:1px solid #bcc79d;background:#edf3d9;transform:rotate(-6deg);color:#5b713e}
+  .start-steps li:nth-child(2) .step-drawing>span {background:#e9e0f3;border-color:#c8b8dc;color:#7b5e96;transform:rotate(5deg)}
+  .start-steps li:nth-child(3) .step-drawing>span {background:#f4e7d2;border-color:#dcc6a1;color:#8c6b3b;transform:rotate(-4deg)}
+  .step-drawing>svg {max-width:190px;flex:1;overflow:visible}
+  .step-drawing>svg path,.fund-margin-note path {fill:none;stroke:#909b79;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+  .start-steps h3 {font-size:19px;font-weight:650;letter-spacing:-.025em;margin-bottom:12px}
+  .start-steps p {max-width:320px}
+  .step-caption {display:flex;align-items:center;gap:7px;font-size:11px;color:#65764d;margin-top:19px}
+  .landing-fund {display:grid;grid-template-columns:.9fr 1.1fr;gap:95px;align-items:center;padding:58px 45px 80px}
+  .fund-paper-icon {display:grid;place-items:center;width:60px;height:65px;border:1px solid #c7b7db;background:#eee6f7;color:#8a6ba7;border-radius:5px;transform:rotate(-9deg);margin-bottom:24px;box-shadow:5px 6px 0 -1px #f8f7ef,5px 6px 0 0 #c7b7db}
+  .landing-fund h2 {margin-bottom:23px}
+  .fund-preview-copy>p {max-width:390px}
+  .landing .landing-fund .fund-preview-note {font-size:12px;margin:15px 0 26px}
+  .fund-preview-art {position:relative;padding:40px 24px 25px;isolation:isolate;max-width:540px;width:100%;justify-self:end}
+  .fund-preview-art::before {content:'';position:absolute;inset:7px -10px -4px;border-radius:50%;background:#ece7f1;z-index:-2;transform:rotate(-15deg)}
+  .fund-preview-art::after {content:'';position:absolute;inset:52px 33px 15px 22px;background:#e2d7ed;border:1px solid #cab9db;border-radius:10px;z-index:-1;transform:rotate(6deg)}
+  .fund-sample-sheet {background:#fffdf7;border:1px solid #cfc7d7;border-radius:10px;box-shadow:7px 16px 28px #56406a0c;padding:25px 28px 20px;transform:rotate(-2deg)}
+  .fund-sheet-heading {display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:23px}
+  .fund-sheet-heading>span {display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600}
+  .fund-sheet-heading>small {font-size:9px;color:#737967}
+  .fund-mix-switch {display:flex;gap:3px;padding:3px;width:fit-content;background:#f1eee6;border-radius:7px;margin-bottom:22px}
+  .fund-mix-switch button {font-size:11px;padding:8px 13px;border-radius:5px;color:#656852;transition:background .18s,color .18s}
+  .fund-mix-switch button[aria-pressed="true"] {background:#e2d6f0;color:#5b4275;font-weight:600}
+  .fund-mix-switch button:hover {background:#e6e0ed}
+  .fund-mix-mosaic {display:flex;height:130px;gap:4px;border-radius:6px;overflow:hidden;margin-bottom:22px}
+  .fund-mix-mosaic>div {display:flex;align-items:flex-end;justify-content:center;padding-bottom:14px;min-width:0}
+  .fund-mix-mosaic span {font-size:13px;font-family:var(--heading);font-weight:600;color:#303825}
+  .fund-mix-rows {min-height:117px;display:flex;flex-direction:column;gap:12px}
+  .fund-mix-rows>div {display:flex;align-items:center;gap:9px;font-size:11px}
+  .fund-mix-rows i {height:7px;width:7px;border-radius:50%}
+  .fund-mix-rows strong {margin-left:auto;font-weight:500;font-variant-numeric:tabular-nums}
+  .fund-sheet-foot {display:flex;align-items:center;gap:6px;border-top:1px solid #e1e1d4;padding-top:15px;color:#647050;font-size:10px}
+  .fund-margin-note {position:absolute;right:32px;top:-5px;font-size:15px;color:#776087;transform:rotate(9deg)}
+  .fund-margin-note svg {display:block;width:75px;height:40px;margin-left:30px;transform:rotate(12deg)}
+  .fund-art-seal {position:absolute;right:-2px;bottom:7px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:92px;height:92px;border:1px solid #a2b957;border-radius:50%;background:#dafa58;color:#46562d;font-family:var(--heading);font-size:13px;font-weight:650;line-height:1.2;text-align:center;transform:rotate(12deg)}
+  .landing-faq {display:grid;grid-template-columns:.8fr 1.2fr;gap:100px;padding:50px 45px 38px}
+  .landing-faq h2 {margin-bottom:20px}
+  .faq-sprig {width:170px;height:130px;margin-top:25px}
+  .faq-list {border-top:1px solid #d8ddca}
+  .faq-list details {border-bottom:1px solid #d8ddca}
+  .faq-list summary {list-style:none;display:flex;align-items:center;justify-content:space-between;gap:25px;font-size:14px;font-weight:500;cursor:pointer;padding:23px 0;line-height:1.6}
+  .faq-list summary::-webkit-details-marker {display:none}
+  .faq-list summary>svg {flex-shrink:0;color:#798866;transition:transform .2s}
+  .faq-list details[open] summary>svg {transform:rotate(180deg)}
+  .faq-list details[open] summary {color:#71528e}
+  .landing .faq-list p {font-size:13px;padding:0 30px 24px 0}
+}
+@layer responsive {
+  @media(max-width:1320px){
+    .landing :is(.landing-start,.landing-fund,.landing-faq) {margin-inline:40px}
+    .landing-fund,.landing-faq {gap:60px;padding-inline:15px}
+    .start-steps {gap:40px}
+  }
+  @media(max-width:850px){
+    .landing :is(.landing-start,.landing-fund,.landing-faq) {margin-inline:30px}
+    .portfolio-garden {padding-inline:0}
+    .start-heading {align-items:flex-start;gap:25px}
+    .start-heading p {max-width:220px}
+    .start-steps {gap:25px}
+    .start-steps h3 {font-size:16px}
+    .landing .start-steps p {font-size:12px}
+    .step-drawing {gap:12px}
+    .step-drawing>span {height:52px;width:52px}
+    .landing-fund {gap:35px;padding-inline:0}
+    .fund-preview-art {padding-inline:10px}
+    .fund-sample-sheet {padding:20px}
+    .fund-sheet-heading {align-items:flex-start;flex-direction:column;gap:5px}
+    .fund-art-seal {right:-9px;bottom:0;width:76px;height:76px;font-size:11px}
+    .landing-faq {gap:40px;padding-inline:0}
+  }
+  @media(max-width:600px){
+    .landing-hero {overflow:clip}
+    .landing :is(.landing-start,.landing-fund,.landing-faq) {margin-inline:26px}
+    .portfolio-garden {margin-block:5px 35px;padding-block:20px}
+    .portfolio-garden>svg {width:100%;max-width:none}
+    .portfolio-garden figcaption {font-size:10px;margin-top:15px}
+    .landing-start {padding:20px 0 60px}
+    .start-heading {display:block}
+    .start-heading p {margin-top:18px;max-width:none}
+    .start-steps {grid-template-columns:1fr;gap:30px;margin-block:32px}
+    .start-steps li {position:relative;padding-left:80px}
+    .step-drawing {position:absolute;left:0;top:0;height:auto;margin:0}
+    .step-drawing>svg {display:none}
+    .start-steps h3 {font-size:18px;margin-bottom:8px}
+    .landing .start-steps p {font-size:13px}
+    .step-caption {margin-top:12px;font-size:10px}
+    .landing-fund {grid-template-columns:1fr;gap:30px;padding:35px 0 60px}
+    .fund-preview-copy>p {max-width:none}
+    .fund-paper-icon {width:47px;height:53px;margin-bottom:20px}
+    .fund-preview-art {max-width:420px;justify-self:center;padding:36px 10px 22px}
+    .fund-preview-art::before {inset:20px -5px 0;transform:none}
+    .fund-sheet-heading {flex-direction:row;align-items:center;gap:12px}
+    .fund-sheet-heading>span {font-size:12px}
+    .fund-sheet-heading>small {font-size:8px}
+    .fund-mix-mosaic {height:112px}
+    .fund-mix-mosaic span {font-size:11px}
+    .fund-margin-note {right:16px;top:0;font-size:13px}
+    .fund-margin-note svg {width:52px;height:25px}
+    .fund-art-seal {right:-6px;bottom:0}
+    .landing-faq {grid-template-columns:1fr;gap:28px;padding:30px 0 35px}
+    .landing-faq>div:first-child {position:relative}
+    .landing-faq h2 {max-width:280px}
+    .faq-sprig {position:absolute;right:0;bottom:0;width:100px;height:80px;margin:0;opacity:.8}
+    .landing-faq>div:first-child>p {font-size:13px}
+    .faq-list summary {font-size:13px;padding-block:20px}
+    .landing .faq-list p {font-size:12px;padding-right:10px}
+  }
+  @media(prefers-reduced-motion:reduce){.fund-mix-switch button,.faq-list summary>svg {transition:none}}
+}
